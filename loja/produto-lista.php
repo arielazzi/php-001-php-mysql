@@ -2,8 +2,11 @@
 include("cabecalho.php");
 include("conecta.php");
 include("banco-produto.php");
-?>
 
+if (array_key_exists("removido", $_GET) && $_GET['removido'] == true):
+?>
+	<p class="alert-success">Produto apagado com sucesso!</p>
+<?php endif ?>
 <table class="table table-striped table-bordered">
 <?php
 	$produtos = listaProdutos($conexao);
@@ -12,6 +15,7 @@ include("banco-produto.php");
 	<tr>
 		<td><?= $produto['nome']?></td>
 		<td><?= $produto['preco']?></td>
+		<td><a href="remove-produto.php?id=<?=$produto['id']?>" class="text-danger">Remover</a></td>
 	</tr>
 <?php
 	endforeach
