@@ -1,8 +1,8 @@
 <?php
 
-function insereProduto($conexao, $nome, $preco)
+function insereProduto($conexao, $nome, $preco, $descricao)
 {
-	$query = "INSERT INTO produtos (nome, preco) VALUES ('{$nome}', {$preco})";
+	$query = "INSERT INTO produtos (nome, preco, descricao) VALUES ('{$nome}', {$preco}, '{$descricao}')";
 	return mysqli_query($conexao, $query);
 }
 
